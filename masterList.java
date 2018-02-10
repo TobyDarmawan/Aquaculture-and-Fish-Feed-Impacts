@@ -3,34 +3,146 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Fishackathon;
+package problem8;
 
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  *
  * @author 46158
  */
 public class masterList {
-    fishFeed f=new fishFeed();
-    ArrayList<fishFeed> list =new ArrayList<>();
-    public static void main(String[] args) {
-        String choice;
+
+    Scanner input = new Scanner(System.in);
+    ArrayList<fishFeed> list;
+
+    public masterList() {
+        list = new ArrayList();
+    }
+
+    public void sort() {
 
     }
-    public void sort(){
-        
-    }
-    public void filter(){
-        
-    }
-    public ArrayList search(String word){
-        ArrayList <fishFeed> temp=new ArrayList();
-        for (int i=0;i<list.size();i++){
-            if (list.get(i).getName().indexOf(word)>-1){
-                temp.add(list.get(i));
+
+    public ArrayList<fishFeed> filter(double num) {
+        ArrayList<fishFeed> tempt = new ArrayList(list);
+        System.out.print("Which catagory do you want to filter: ");
+        String s = input.next();
+        System.out.println("1. above/t2. below");
+        int a = input.nextInt();
+        if (a == 1) {
+            switch (s) {
+                case "carbon": {
+                    for (int i = 0; i < tempt.size(); i++) {
+                        if (tempt.get(i).getCarbon() < num) {
+                            tempt.remove(i);
+                        }
+                    }
+                    break;
+                }
+                case "phosphorous": {
+                    for (int i = 0; i < tempt.size(); i++) {
+                        if (tempt.get(i).getPhosphorous() < num) {
+                            tempt.remove(i);
+                        }
+                    }
+                    break;
+                }
+                case "nitrogen": {
+                    for (int i = 0; i < tempt.size(); i++) {
+                        if (tempt.get(i).getNitrogen() < num) {
+                            tempt.remove(i);
+                        }
+                    }
+                    break;
+                }
+                case "cost": {
+                    for (int i = 0; i < tempt.size(); i++) {
+                        if (tempt.get(i).getCost() < num) {
+                            tempt.remove(i);
+                        }
+                    }
+                    break;
+                }
+                case "fat": {
+                    for (int i = 0; i < tempt.size(); i++) {
+                        if (tempt.get(i).getFat() < num) {
+                            tempt.remove(i);
+                        }
+                    }
+                    break;
+                }
+                case "protein": {
+                    for (int i = 0; i < tempt.size(); i++) {
+                        if (tempt.get(i).getProtein() < num) {
+                            tempt.remove(i);
+                        }
+                    }
+                    break;
+                }
+                default: {
+
+                }
+            }
+        } else {
+            switch (s) {
+                case "carbon": {
+                    for (int i = 0; i < tempt.size(); i++) {
+                        if (tempt.get(i).getCarbon() > num) {
+                            tempt.remove(i);
+                        }
+                    }
+                    break;
+                }
+                case "phosphorous": {
+                    for (int i = 0; i < tempt.size(); i++) {
+                        if (tempt.get(i).getPhosphorous() > num) {
+                            tempt.remove(i);
+                        }
+                    }
+                    break;
+                }
+                case "nitrogen": {
+                    for (int i = 0; i < tempt.size(); i++) {
+                        if (tempt.get(i).getNitrogen() > num) {
+                            tempt.remove(i);
+                        }
+                    }
+                    break;
+                }
+                case "cost": {
+                    for (int i = 0; i < tempt.size(); i++) {
+                        if (tempt.get(i).getCost() > num) {
+                            tempt.remove(i);
+                        }
+                    }
+                    break;
+                }
+                case "fat": {
+                    for (int i = 0; i < tempt.size(); i++) {
+                        if (tempt.get(i).getFat() > num) {
+                            tempt.remove(i);
+                        }
+                    }
+                    break;
+                }
+                case "protein": {
+                    for (int i = 0; i < tempt.size(); i++) {
+                        if (tempt.get(i).getProtein() > num) {
+                            tempt.remove(i);
+                        }
+                    }
+                    break;
+                }
+                default: {
+
+                }
             }
         }
-        return temp;
+        return tempt;
+    }
+
+    public void search(String word) {
+
     }
 }
