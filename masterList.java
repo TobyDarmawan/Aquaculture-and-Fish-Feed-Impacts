@@ -5,11 +5,15 @@
  */
 package Fishackathon;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author 46158
  */
 public class masterList {
+    fishFeed f=new fishFeed();
+    ArrayList<fishFeed> list =new ArrayList<>();
     public static void main(String[] args) {
         String choice;
 
@@ -20,7 +24,13 @@ public class masterList {
     public void filter(){
         
     }
-    public void search(String word){
-        
+    public ArrayList search(String word){
+        ArrayList <fishFeed> temp=new ArrayList();
+        for (int i=0;i<list.size();i++){
+            if (list.get(i).getName().indexOf(word)>-1){
+                temp.add(list.get(i));
+            }
+        }
+        return temp;
     }
 }
